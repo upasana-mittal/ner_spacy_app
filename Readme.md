@@ -1,5 +1,7 @@
 # Named Entity Recognition using spacy
 
+This is in refrence to the article written on https://www.javacodemonk.com/named-entity-recognition-spacy-flask-api-1678a5df
+Kindly go through that as well to understand and use the project in production.
 
 ## Getting started
 
