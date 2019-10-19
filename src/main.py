@@ -43,9 +43,19 @@ def get_help():
     ), status=200, mimetype='application/json')
 
 @app.route("/predict_entity", methods=["POST"])
-def predict_entity_sm():
+def predict_entity():
     text = request.json["text"]
     model = request.json["model"]
+    entity_dict = NamedEntityService.get_entities(text, model)
+    return Response(json.dumps(entity_dict), status=200, mimetype='application/json')
+
+@app.route("/predict_entity_sm", methods=["GET"])
+def predict_entity_sm():
+    """
+            for h2load testing
+                    """
+    text = request.args.get("text", type=str)
+    model = "en_core_web_sm"
     entity_dict = NamedEntityService.get_entities(text, model)
     return Response(json.dumps(entity_dict), status=200, mimetype='application/json')
 
